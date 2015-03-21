@@ -1,0 +1,210 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(raja-images/bg-new.jpg);
+	background-attachment:fixed;
+}
+hr{height:0; border:none; border-bottom:1px solid rgba(255,255,255,0.13); border-top:1px solid rgba(0,0,0,1); margin:9px 10px; clear:both;}
+		.links{margin:10px;}
+		.links a{display:inline-block; padding:3px 15px; margin:7px 10px; background:#444; text-decoration:none; -webkit-border-radius:15px; -moz-border-radius:15px; border-radius:15px;}
+		.links a:hover{background:#eb3755; color:#fff;}
+		.content{margin:-6px; width:260px; height:500px; padding:20px; overflow:auto; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;}
+		.content p:nth-child(even){color:#000; font-family:Georgia,serif; font-size:17px; font-style:italic;}
+		.content p:nth-child(3n+0){color:#000;}
+
+.ltr-bg2 {
+	background-image: url(raja-images/lett-bg2.png);
+}
+.body-bg {
+	background-image: url(raja-images/body-white.png);
+}
+.ltr-bg-hd {
+	background-image: url(raja-images/letters-bg-head.png);
+}
+.txt-hd-white {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+.txt-hd-brown {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #662117;
+	text-decoration: none;
+}
+.txt-hd-color {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	color: #531B14;
+	text-decoration: none;
+}
+.txt-hd-whiteCopy {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	
+}
+.search-bg {
+	background-image: url(raja-images/search-bg.png);
+}
+.title-bg-hd {
+	background-image: url(raja-images/title-head.png);
+}
+.big-bg {
+	background-image: url(raja-images/latest-head.png);
+}
+.txt-small {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666;
+	text-decoration: none;
+}
+.txt-smallwhite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+}
+.txt-smallCopy {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666;
+	text-decoration: none;
+	text-align: justify;
+	line-height: 17px;
+}
+.side-buton-head {
+	background-image: url(raja-images/side-button-bg.png);
+}
+.side-white {
+	background-image: url(raja-images/side-whit.png);
+}
+.side-bg2 {
+	background-image: url(raja-images/side-bg2.png);
+}
+.footer-bg {
+	background-image: url(raja-images/footer-bg.jpg);
+}
+.text {	font-family: 'Sintony', sans-serif;
+	font-size: 13px;
+	line-height: 24px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+	text-align: justify;
+}
+.textcolor {
+	font-family: 'Sintony', sans-serif;
+	font-size: 13px;
+	line-height: 24px;
+	font-weight: bold;
+	color: #F90;
+	text-decoration: none;
+}
+.foot {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+}
+.aa-bg {
+	background-image: url(raja-images/aa-bg.jpg);
+}
+.text-white {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+}
+.song-lyrics-bg {
+	background-image: url(raja-images/song-lyrics-bg.png);
+}
+.l2 {
+	background-image: url(raja-images/l2.png);
+}
+.lry-bg1 {
+	background-image: url(raja-images/lyrics-bg1.jpg);
+}
+.form-txt {
+	border-top-color: #B17D19;
+	border-right-color: #B17D19;
+	border-bottom-color: #B17D19;
+	border-left-color: #B17D19;
+	
+	
+}
+.search-bg-big {
+	background-image: url(raja-images/search-bg-big.png);
+}
+.l-big2 {
+	background-image: url(raja-images/lbig3.png);
+}
+.lyrics-big {
+	background-image: url(raja-images/lyrics-big.jpg);
+}
+ul#menu, ul#menu ul.sub-menu {
+    padding:0;
+    margin: 0;
+}
+ul#menu li, ul#menu ul.sub-menu li {
+    list-style-type: none;
+    display: inline-block;
+}
+/*Link Appearance*/
+ul#menu li a, ul#menu li ul.sub-menu li a {
+    text-decoration: none;
+    color: #fff;
+    /*background: #666;*/
+    padding: 5px;
+    display:inline-block;
+	margin-left: 68px;
+    margin-right: 8px;
+	margin-top: 9px;
+}
+/*Make the parent of sub-menu relative*/
+ul#menu li {
+    position: relative;
+}
+/*sub menu*/
+ul#menu li ul.sub-menu {
+    display:none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100px;
+}
+ul#menu li:hover ul.sub-menu {
+    display:block;
+}
+.menu1
+{
+	background:url(raja-images/menu.png) no-repeat;
+	width:990px;
+	height:39px;
+}
+#floatDiv {
+    background: url("images/social-media/bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 13px;
+    height: 400px;
+    left: 89%;
+    margin-left: 0;
+    margin-top: 150px;
+    padding: 10px;
+    position: absolute;
+    width: 50px;
+    z-index: 99;
+}
+.lyric_{ margin:22px 0 0;}

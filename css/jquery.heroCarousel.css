@@ -1,0 +1,119 @@
+.hero {
+        width: 850px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10px;
+        margin: 0 auto;
+    }
+    
+    .hero-carousel article {
+        width: 850px;
+        margin: 0px;
+        height: 305px;
+        display: block;
+        float: left;
+        position: relative;
+        }
+                
+    .hero-carousel-container article {
+        float: right;
+        left: 20px;
+        }
+    
+        .hero-carousel article img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border: 5px solid #fff; 
+            border-radius: 5px;
+            }
+            
+        .hero-carousel article .contents {
+            position: relative;
+            z-index: 2;
+            top: 25px;
+            left: 40px;
+            list-style: none;
+            color: #000;
+            width: 400px;
+            padding: 20px;
+            float: left;
+            color: #fff;
+            text-align: left;
+            text-decoration: none;
+            /*background: rgba(255,255,255,0.8);
+            -pie-background: rgba(255,255,255,0.8);
+            text-align: left;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            */
+            
+            }
+    
+        .hero-carousel-nav {
+            width: 800px;
+            position: absolute;
+            bottom: 90px;            
+            margin-left: 3px;
+            z-index: 2;
+            }
+            
+            .hero-carousel-nav li {
+                position: absolute;
+                bottom: 10px;
+                right: 0px;
+                list-style: none;
+                }
+                
+            .hero-carousel-nav li.prev {
+                left: 5px;
+                right: auto;
+                }
+                
+            .hero-carousel-nav li a {
+                /* background: #D21034; */
+                color: #fff;
+                border: none;
+                outline: none;
+                display: block;
+                float: left;
+                padding: 5px 20px;
+                
+                -moz-border-radius: 20px;
+                -webkit-border-radius: 20px;
+                border-radius: 20px;
+                
+                
+               }
+
+                .hero-carousel-nav li a:link {
+                /* background: #D21034; */
+                color: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                font-weight: bolder;
+                color: #fff;
+                
+               }
+
+            
+            .hero-carousel-nav li a:hover { 
+                /* background: #89051C; */
+                }
+                
+            .hero-carousel-nav li a:active,
+            .hero-carousel-nav li a:focus { 
+                border: none;
+                outline: none;
+                }
+                /* unvisited link */
+
+
+.hero-carousel img{
+ width:800px;height:305px
+}
+.carouse-l-txt-small{
+    font-size: 12em;
+}

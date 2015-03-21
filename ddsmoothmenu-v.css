@@ -1,0 +1,64 @@
+.ddsmoothmenu-v ul{
+margin: 0 0 -15px;
+padding: 0;
+width: 50px; /* Main Menu Item widths */
+list-style-type: none;
+font: bold 12px Verdana;
+}
+ 
+
+#smoothmenu2 li a { border-radius: 5px; }
+ 
+/*
+li:first-child  a{border-top-left-radius: 5px; border-top-right-radius: 5px;  }
+li:first-child  a{border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;  }
+li:last-child  a{border-top-left-radius: 5px; border-top-right-radius: 5px;  }
+li:last-child  a{border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;  }
+*/
+ 
+.ddsmoothmenu-v ul li{
+position: relative;
+float: none;
+}
+
+/* Top level menu links style */
+.ddsmoothmenu-v ul li a{
+display: block;
+overflow: hidden; /*force hasLayout in IE7 */
+color: white;
+text-decoration: none;
+padding: 6px 23px 6px 6px;
+border-bottom: 2px solid #795e23;
+border-right: 2px solid #795e23;
+}
+
+.ddsmoothmenu-v ul li a:link, .ddsmoothmenu-v ul li a:visited, .ddsmoothmenu-v ul li a:active{
+background: #a17413; /*background of menu items (default state)*/
+color: white;
+}
+
+
+.ddsmoothmenu-v ul li a.selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+background: #ddb04d !important; 
+color: navy;
+}
+
+.ddsmoothmenu-v ul li a:hover{
+background: #ddb04d; /*background of menu items during onmouseover (hover state)*/
+color: navy;
+}
+
+/*Sub level menu items */
+.ddsmoothmenu-v ul li ul{
+position: absolute;
+width: 75px; /*Sub Menu Items width */
+top: 0;
+font-weight: normal;
+visibility: hidden;
+}
+
+ 
+/* Holly Hack for IE \*/
+* html .ddsmoothmenu-v ul li { float: left; height: 1%; }
+* html .ddsmoothmenu-v ul li a { height: 1%; }
+/* End */

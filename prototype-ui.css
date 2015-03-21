@@ -1,0 +1,71 @@
+/* Horizontal Carousel */
+#horizontal_carousel {
+  width: 689px;
+  height: 181px;
+  padding:10px;
+  background:#f6f6f6;
+  border:solid 1px #e9e9e9;
+}
+
+#horizontal_carousel .container {
+   width: 690px;;
+  overflow: hidden;
+}
+
+#horizontal_carousel ul {
+  margin: 0;
+  padding:0;
+  width: 100000px;
+  position: relative;
+  top: 0;
+  left: -10px;
+  height: 90px;
+}                      
+
+#horizontal_carousel ul li {
+  width: 90px;
+  height: 90px;
+  text-align: center; 
+  list-style:none;   
+  float:left;
+}
+
+#horizontal_carousel .buttons{
+	display:block;
+ 	clear:both;
+	margin-top: -18px;
+}
+#horizontal_carousel .previous_button {
+  float:left;  
+  width: 23px;
+  height: 23px;
+  background: url(img1/but_prev_dis.png) no-repeat;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#horizontal_carousel .previous_button_over {
+  background: url(img1/but_prev_dis.png) no-repeat;}
+
+#horizontal_carousel .previous_button_disabled {
+  background: url(img1/but_prev_dis.png) no-repeat;
+  cursor: default;
+}
+
+#horizontal_carousel .next_button {
+  float:right;  
+  width: 23px;
+  height: 23px;
+  background: url(img1/but_next.png) no-repeat;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#horizontal_carousel .next_button_over {
+  background: url(img1/but_next.png) no-repeat;
+}
+
+#horizontal_carousel .next_button_disabled {
+  background: url(img1/but_next.png) no-repeat;
+  cursor: default;
+}
