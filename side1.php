@@ -241,7 +241,7 @@
                     <li><a href="songtabletamil.php?char=ரௌ&m=2">ரௌ</a></li>
                 </ul>
             </li>
-            </li>
+           
             <li><a href="#">ல</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=ல&m=2">ல</a></li>
@@ -258,7 +258,7 @@
                     <li><a href="songtabletamil.php?char=லௌ&m=2">லௌ</a></li>
                 </ul>
             </li>
-            </li>
+           
             <li><a href="#">வ</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=வ&m=2">வ</a></li>
@@ -275,7 +275,7 @@
                     <li><a href="songtabletamil.php?char=வௌ&m=2">வௌ</a></li>
                 </ul>
             </li>
-            </li>
+            
             <li><a href="#">ழ</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=ழ&m=2">ழ</a></li>
@@ -292,7 +292,7 @@
                     <li><a href="songtabletamil.php?char=ழௌ&m=2">ழௌ</a></li>
                 </ul>
             </li>
-            </li>
+            
             <li><a href="#">ள</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=ள&m=2">ள</a></li>
@@ -309,7 +309,7 @@
                     <li><a href="songtabletamil.php?char=ளௌ&m=2">ளௌ</a></li>
                 </ul>
             </li>
-            </li>
+           
             <li><a href="#">ற</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=ற&m=2">ற</a></li>
@@ -326,7 +326,7 @@
                     <li><a href="songtabletamil.php?char=றௌ&m=2">றௌ</a></li>
                 </ul>
             </li>
-            </li>
+            
             <li><a href="#">ன</a>
                 <ul>
                     <li><a href="songtabletamil.php?char=ன&m=2">ன</a></li>
@@ -341,6 +341,16 @@
                     <li><a href="songtabletamil.php?char=னொ&m=2">னொ</a></li>
                     <li><a href="songtabletamil.php?char=னோ&m=2">னோ</a></li>
                     <li><a href="songtabletamil.php?char=னௌ&m=2">னௌ</a></li>
+                </ul>
+            </li>
+			<li><a href="#">ஸ்ரீ</a>
+                <ul>
+                    <li><a href="songtabletamil.php?char=ஸ்ரீ&m=2">ஸ்ரீ</a></li>
+                    <li><a href="songtabletamil.php?char=ஜா&m=2">ஜா</a></li>
+                    <li><a href="songtabletamil.php?char=ஹ&m=2">ஹ</a></li>
+                    <li><a href="songtabletamil.php?char=ஷ&m=2">ஷ</a></li>
+                    <li><a href="songtabletamil.php?char=ஸ&m=2">ஸ</a></li>
+                    
                 </ul>
             </li>
         </ul>

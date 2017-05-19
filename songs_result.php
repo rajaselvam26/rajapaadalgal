@@ -19,21 +19,21 @@ if (@$_REQUEST['search'] != "Advanced Search") {
                    <?php if ($lang == 1) { ?> 
                 <thead>
                     <tr>                
-                        <th data-options="field:'Medium', width:55" resizable="false">Medium</th>
+                        <!-- <th data-options="field:'Medium', width:55" resizable="false">Medium</th> -->
                         <th data-options="field:'sname', width:200" resizable="false" sortable="true">Song Title</th>
                         <th data-options="field:'film_info', width:150" resizable="false" sortable="true">Film Name</th>
-                        <th data-options="field:'singer_info', width:240" resizable="false">Singers</th>
-                        <th data-options="field:'lyricist', width:150" resizable="false">Lyricist</th>                
+                        <th data-options="field:'singer_info', width:240" resizable="false" sortable="true">Singers</th>
+                        <th data-options="field:'lyricist', width:150" resizable="false" sortable="true">Lyricist</th>                
                     </tr>
                 </thead>
             <?php } else if ($lang == 2) { ?>
                 <thead>
                     <tr>                
-                        <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்<</th>
+                        <!-- <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்</th> -->
                         <th data-options="field:'sname', width:200" resizable="false" sortable="true">பாடல் பெயர்</th>
                         <th data-options="field:'film_info', width:150" resizable="false" sortable="true">படப் பெயர்</th>
-                        <th data-options="field:'singer_info', width:240" resizable="false">பாடகர்கள</th>
-                        <th data-options="field:'lyricist', width:150" resizable="false">பாடலாசிரியர</th>                
+                        <th data-options="field:'singer_info', width:240" resizable="false" sortable="true">பாடகர்கள</th>
+                        <th data-options="field:'lyricist', width:150" resizable="false" sortable="true">பாடலாசிரியர</th>                
                     </tr>
                 </thead>
             <?php } ?> </table>
@@ -45,11 +45,11 @@ if (@$_REQUEST['search'] != "Advanced Search") {
                rownumbers="true"  iconCls="icon-save" pagination="true">
             <thead>
                 <tr>                
-                    <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்<</th>
+                    <!-- <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்<</th> -->
                     <th data-options="field:'sname', width:250" resizable="false" sortable="true">பாடல் பெயர்</th>
                     <th data-options="field:'film_info', width:150" resizable="false" sortable="true">படப் பெயர்</th>
-                    <th data-options="field:'singer_info', width:180" resizable="false">பாடகர்கள</th>
-                    <th data-options="field:'lyricist', width:150" resizable="false">பாடலாசிரியர</th>                
+                    <th data-options="field:'singer_info', width:180" resizable="false" sortable="true">பாடகர்கள</th>
+                    <th data-options="field:'lyricist', width:150" resizable="false" sortable="true">பாடலாசிரியர</th>                
                 </tr>
             </thead>
         </table> 
@@ -70,21 +70,21 @@ if (@$_REQUEST['search'] != "Advanced Search") {
                <?php if ($lang == 1) { ?> 
             <thead>
                 <tr>                
-                    <th data-options="field:'Medium', width:55" resizable="false">Medium</th>
+                    <!-- <th data-options="field:'Medium', width:55" resizable="false">Medium</th> -->
                     <th data-options="field:'sname', width:250" resizable="false" sortable="true">Song Title</th>
                     <th data-options="field:'film_info', width:150" resizable="false" sortable="true">Film Name</th>
-                    <th data-options="field:'singer_info', width:180" resizable="false">Singers</th>
-                    <th data-options="field:'lyricist', width:150" resizable="false">Lyricist</th>                
+                    <th data-options="field:'singer_info', width:180" resizable="false" sortable="true">Singers</th>
+                    <th data-options="field:'lyricist', width:150" resizable="false" sortable="true">Lyricist</th>                
                 </tr>
             </thead>
         <?php } else { ?>
             <thead>
                 <tr>                
-                    <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்<</th>
+                    <!-- <th data-options="field:'Medium', width:55" resizable="false">ஊடகம்<</th> -->
                     <th data-options="field:'sname', width:250" resizable="false" sortable="true">பாடல் பெயர்</th>
                     <th data-options="field:'film_info', width:150" resizable="false" sortable="true">படப் பெயர்</th>
-                    <th data-options="field:'singer_info', width:180" resizable="false">பாடகர்கள</th>
-                    <th data-options="field:'lyricist', width:150" resizable="false">பாடலாசிரியர</th>                
+                    <th data-options="field:'singer_info', width:180" resizable="false" sortable="true">பாடகர்கள</th>
+                    <th data-options="field:'lyricist', width:150" resizable="false" sortable="true">பாடலாசிரியர</th>                
                 </tr>
             </thead>
         <?php } ?> 
@@ -108,11 +108,15 @@ if ($path_parts['basename'] != "advanced_tamil.php" && $path_parts['basename'] !
 
 <script>
     $(document).ready(function() {
+		
         $('#songsTable').datagrid({
             onLoadSuccess: function(data) {
                 if (data.total == 0) {
                     showNoRecordsMessage($('#songsTable'));
-                } 
+                } else {
+					var vc = $('#songsTable').datagrid('getPanel').children('div.datagrid-view');
+					vc.children('div.datagrid-empty').remove();
+				}
             }
         })
     });

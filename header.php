@@ -3,7 +3,7 @@
 	include("includes/common_fns.php");
 	session_start();
 	require_once 'fb/fb_config.php';
-require_once 'fb/facebook.php';
+	require_once 'fb/facebook.php';
 
 $facebook = new Facebook(array(
 	'appId' => $APP_ID,
@@ -23,15 +23,14 @@ if($facebook->getUser() != 0) {
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Rajapadalgal.com | Ilayaraja Songs | Tamil Songs | Best Ilayaraja Songs | Ilayaraja Movie Songs.</title>
-  
+  <title> இராஜாபாடல்கள்  </title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" type="text/css" href="css/raja_paadal.css" />
   <link rel="stylesheet" type="text/css" href="ddsmoothmenu.css" />
   <link rel="stylesheet" type="text/css" href="ddsmoothmenu-v.css" />
   
   <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="ddsmoothmenu.js"></script>
-  
+  <script type="text/javascript" src="ddsmoothmenu.js"></script>  
   <script type="text/javascript">
   
   ddsmoothmenu.init({
@@ -57,12 +56,12 @@ if($facebook->getUser() != 0) {
   </head>
   
   <body>
-  <?php include("float.php"); ?>
+  <?php //include("float.php"); ?>
   <table width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin:0 auto;">
     <tr>
       <td height="977" valign="top"><table width="990" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-      <td height="977" style="width:990" valign="top" bgcolor="#FFFFFF">
+      <td height="977" style="width:990" valign="top" bgcolor="#F3EDDD">
 
 
 <!------------------------- Common Code Ends -->
@@ -78,14 +77,12 @@ if($facebook->getUser() != 0) {
 						<td width="599" colspan="-1" valign="top" bgcolor="#F3EDDD">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
-									<td width="77%" height="50">&nbsp;</td>
+									<td width="77%" height="50px;">&nbsp;</td>
 								</tr>
 								<tr>
-									<td height="41" colspan="2">
-										<li style="list-style:none;">
-											<iframe src="test/index-key.php" width="387" scrolling="yes" style="overflow: hidden;position: absolute;top: -10px; border:none; right:14px; height: 102px; ">
-											</iframe>
-										</li>
+									<td height="50px;" colspan="2">										
+										<iframe src="test/index-key.php" height="130px;" width="490"  style="position: absolute;top: -30px; border:none; right:14px; ">
+										</iframe>										
 									</td>
 								</tr>
 						<?php  if(isset($_SESSION['uname']) || !empty($_SESSION['uname'])) {
@@ -109,11 +106,11 @@ if($facebook->getUser() != 0) {
 							</table>
 						<?php }else {?>
                     </table>
-                    <table style="float:right; color:#841619; border-radius:5px;font-family: sans-serif; font-weight:bold; font-size: 18px;">
+                    <table style="float:right; color:#841619; border-radius:5px;font-family: sans-serif; font-weight:bold; font-size: 18px; margin-top: 0px;">
                         <tr style="float:right;">
                             <td><a style="text-decoration:none; font-size: 12px; color:#662117; padding:0 8px 0 0;" href="login1.php">Login</a></td>
                             <td style="font-size:15px; padding:0 4px 0 0;">&nbsp;|&nbsp;</td>
-                            <td><a style="text-decoration:none; font-size: 12px; color:#662117;" href="register.php">Create Account</a></td>
+                            <td><a style="text-decoration:none; font-size: 12px; color:#662117;" href="login1.php">Create Account</a></td>
                             <td style="font-size:15px;"></td>
                         </tr>
                     </table>
@@ -128,3 +125,11 @@ if($facebook->getUser() != 0) {
 		</td>
 	</tr>
 </table>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).bind("contextmenu cut copy paste drag drop",function(e){
+			//alert("Right click disabled!!");
+			//return false;
+		});
+	})
+</script>

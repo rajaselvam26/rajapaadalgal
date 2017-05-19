@@ -121,12 +121,12 @@ include_once("includes/config.php");
 <ul id="itemContainer" class="rajaBorder borderShadow">
     <?php
     mysql_query("set character_set_results='utf8'");
-    $vtb = mysql_query("select * from flim_tamil where flag='2'");
-    $vtb2 = mysql_query("select * from flim_english where flag='2'");
-    $tot_count = mysql_num_rows($vtb2);
+    $vtb = mysql_query("select * from flim_tamil where flag='2' ORDER BY `id` DESC");    
+    $tot_count = mysql_num_rows($vtb);
     $count = 0;
     while ($r = mysql_fetch_object($vtb)) {
         $count++;
+		$vtb2 = mysql_query("select * from flim_english where id = $r->id");
         $r2 = mysql_fetch_object($vtb2);
         $hor_class = ($count % 4 == 0) ? "h" : ($tot_count == $count) ? "" : "border-right: 1px solid #a1a1a1;";
         $latest_img_path = ($_SERVER['HTTP_HOST'] == "localhost") ? "../raja_admin/Thumbnails/" : "../rajaadmin/Thumbnails/";

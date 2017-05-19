@@ -237,7 +237,7 @@ if (isset($_REQUEST['search'])) {
 
 
 </tr>";
-        $sel4 = mysql_query("select * from flim_tamil a,songs_tamil b where (a.id=b.fid) and (b.songlyrics like N'%$fname%')");
+        $sel4 = mysql_query("select * from flim_tamil a,songs_tamil b where (a.id=b.fid) and (b.songlyrics like N'%$fname%') order by a.rid");
         $count4 = mysql_num_rows($sel4);
         while ($r = mysql_fetch_object($sel1)) {
             $str1 = $r->sname;

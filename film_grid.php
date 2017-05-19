@@ -9,13 +9,13 @@ $film_name = isset($_POST['film_name']) ? mysql_real_escape_string($_POST['film_
 
 switch ($lang) {
     case 1:
-        $where = ( $film_name != "") ? " where flimname like '$film_name%' and year != 0" : "where year != 0";
+        $where = ( $film_name != "") ? " where flimname like '$film_name%' and flim_english.lang = 'Tamil' and year != 0" : "where year != 0 and flim_english.lang = 'Tamil'";
         $qry = "SELECT id, flimname, year, fproducer, fdirector, actors, actresses
                      FROM flim_english $where order by $sort $order  ";
 		$recordset = mysql_query($qry, $con);
         break;
     case 2:
-        $where = ( $film_name != "") ? " where flimname like '$film_name%' and year != 0" : "where year != 0";
+        $where = ( $film_name != "") ? " where flimname like '$film_name%' and flim_tamil.lang = 'தமிழ்' and year != 0" : "where year != 0 and flim_tamil.lang = 'தமிழ்'";
         $qry = "SELECT id, flimname, year, fproducer, fdirector, actors, actresses FROM flim_tamil 
                     $where order by $sort $order";
         $recordset = mysql_query($qry, $con);

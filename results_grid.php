@@ -1,5 +1,4 @@
 <?php
-
 include_once('includes/config.php');
 include_once('includes/common_fns.php');
 session_start();

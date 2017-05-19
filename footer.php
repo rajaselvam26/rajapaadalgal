@@ -17,21 +17,13 @@
 }
 .ftr_top{ text-align:center;} .ftr_top li{ display:inline-block; margin:0 6px;} .ftr_top li a{ font-size:13px; color:#fff; text-decoration:none;}
 </style>
-<!-- 		<table class="footer-bg" width="998" border="0" align="center" cellpadding="0" cellspacing="0">
-		
-			<tr>
-				<div style="display:block;"><a href="#"></a></div>
-				<td height="28" align="center" class="foot">
-					Copyrights © Rajapadalgal.com .Website Designed by <a href="http://www.360degreeinfo.com/" target="_blank" class="text">360degreeinfo</a>
-				</td>
-			</tr>
-		</table> -->
+
 	<div class="footer-bg">
 	<div class="ftr_top">
     	<li><a href="terms.php">Terms &amp; Conditions</a></li> | <li><a href="disclaimer.php">Disclaimers</a></li> | <li><a href="policy.php">Private Policy</a></li>
     </div>
 	<div class="foot">
-    	Copyrights © rajapadalgal.com <!--Website Designed by <a href="http://www.360degreeinfo.com/" target="_blank" class="text">360degreeinfo</a> -->
+    	Copyrights © rajapadalgal.com
     </div>
 </div>
 	

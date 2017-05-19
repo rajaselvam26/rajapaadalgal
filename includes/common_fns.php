@@ -169,7 +169,8 @@
 	}
 
 	function first_few_words($text, $limit=20){
-		$split_char = explode(' ', $text);
+		$text=str_replace(".","", $text);
+		$split_char  = explode(' ', trim($text));
 		$new_string  = "";
 
 		$dots = '.....';

@@ -352,7 +352,7 @@ audio {
     border:solid 2px #F4B332;
     width: 305px; 
     border-radius:5px; 
-    height:270px; 
+    height:300px; 
     margin-top: 5px;
 }
 .borderShadow {
@@ -622,4 +622,8 @@ color:#000;
 	font-weight: normal;
 	color: #212121;
 }
-
+.rajaBorder1{
+    border:solid 2px #F4B332;
+    border-radius:5px; 
+    margin-top: 5px;
+}

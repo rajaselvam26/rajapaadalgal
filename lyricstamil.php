@@ -58,19 +58,20 @@ if (isset($_SESSION["BACK_PAGE_PATH"])) {
 				while ($con_row = mysql_fetch_object($conRes)){
 					$audio_player = $con_row->config_status;
 				}
+				if( ($_SESSION['uname'] == 'rajaselvam.m@gmail.com') || ($_SESSION['uname'] == 'lalithasant@gmail.com')) $audio_player = 1;
 				if( $audio_player == 1) {
 			?>
-				<div style="position:absolute;right: 180px; margin-top: -13px;">
+				<div style="position:absolute;right: 186px; margin-top: -18px;">
 					<audio autoplay="autoplay" controls="controls" loop="loop">
 						<source src="songs/<?php echo $fid; ?>/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3" type="audio/mpeg">
 						<embed height="30" width="100" src="songs/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3">
 					</audio> 
 				</div>
 			<?php } ?>
-            <div style="position: absolute; margin-right: -50px;margin-top: -20px;">
+            <div style="position: absolute; margin-right: -50px;margin-top: -25px; margin-left: 8px;">
                 <a class="" href="<?php echo $previous; ?>"> <img src="img/back_button.png" border="0" alt="Back to previous" title="Back to previous"/></a>
             </div>
-			<div style="position: absolute;right: 270px;float: right;margin-top: 38px;">
+			<div style="position: absolute;right: 270px;float: right;margin-top: 30px;">
             	<a href="#main_comment"> <img src="img/comment.png" border="0" alt="comment" title="Comment"/></a>			
             </div>
 
@@ -79,10 +80,10 @@ if (isset($_SESSION["BACK_PAGE_PATH"])) {
 
     <tr>
         <td width="33%" height="210" valign="top">
-            <table width="326" border="0" align="left" cellpadding="0" cellspacing="0">
+            <table width="326" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top: 6px;">
 
                 <tr>
-                    <td width="315" height="200" align="center" valign="top">
+                    <td width="315px" height="300px" align="center" valign="top">
                         <div class="rajaBorder" style="left: 2px;">
                             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
@@ -91,14 +92,15 @@ if (isset($_SESSION["BACK_PAGE_PATH"])) {
                                         @$n = $_GET['m'];
                                         if (@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "") {
                                             $res = mysql_query($movies_qry, $con);
+											$film_songs_count = mysql_num_rows($res);
                                             echo "<div style='text-align:left;'>
                                                                 <font size='4px' style='font-weight:bold;line-height:40px; font-size:14px;'>
-                                                                    &nbsp;&nbsp;<img src='photos/flim.png' width='40' height='40' 
-                                                                    style='vertical-align:middle;'/>&nbsp;&nbsp;" . ret_filmname($_GET["fid"], $m) . "
+                                                                    &nbsp;&nbsp;<img src='photos/flim.png'  
+                                                                    style='vertical-align:middle;'/>&nbsp;&nbsp;" . first_few_words(ret_filmname($_GET["fid"], $m), 3) . "
                                                                     <hr color='black' style=' margin-left: 4px; width: 298px;'></font>";
-                                            echo "</div><br>";
+                                            echo "</div>";
                                             ?>
-                                            <div style="text-align:left; height:200px;margin: 10px width:294px; padding:0; margin-top: 0px; overflow:auto;" id="content_5" class="content" >
+                                            <div style="text-align:left; height:250px;margin: 10px width:294px; padding:0; margin-top: 0px; overflow:auto;" id="content_5" class="content" >
                                                 <?php
                                                 $i = 1;
                                                 while (@$row = mysql_fetch_array($res)) {
@@ -123,25 +125,28 @@ if (isset($_SESSION["BACK_PAGE_PATH"])) {
                                             ?>
                                     </td>
                                 </tr>
+							
 <?php
-if (@$_SESSION["songs_record_set"] != "") {
+
+if (@$_SESSION["only_film"] == 0 && @$_SESSION["songs_record_set"] != "" && @$_SESSION['songs_count'] !=  $film_songs_count) {
     ?>
                                     <tr>
                                         <td >
-                                            <table width="324" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+                                            <table width="324" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top: 0px;">
                                                 <tr>
                                                     <td width="400" height="300" valign="top" >
-                                                        <div class="rajaBorder" style="height: 330px;">
+                                                        <div class="rajaBorder" style="height: 315px;">
                                                             <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
                                                                 <tr>
                                                                     <td> 
-                                                                        <span style='font-weight:bold;font-size:14px; margin-left: 10px;line-height:35px;'>Previous search </span>
+                                                                        <span style='font-weight:bold;font-size:14px; margin-left: 10px;line-height:35px;'><img src='photos/flim.png'  
+                                                                    style='vertical-align:middle;'/>&nbsp;&nbsp;Previous search </span>
                                                                         <hr color='black' style=' margin-left: 4px; width: 298px;'>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td height="18"> 
-                                                                        <div style="text-align:left; height:260px; width:294px; padding:0; margin-top: 4px; overflow:auto;" id="search_content" class="content" >
+                                                                        <div style="text-align:left; height:250px; width:294px; padding:0; margin-top: 4px; overflow:auto;" id="search_content" class="content" >
     <?php
     $search_qry = $_SESSION["songs_record_set"];
     $recordset = mysql_query($search_qry, $con);
@@ -185,7 +190,13 @@ if (@$_SESSION["songs_record_set"] != "") {
             </table>
         </td>    
         <td>
-            <table width="640px" height="634" border="0" cellpadding="0" style="margin-top: 10px;" cellspacing="0" background="raja-images/rollpaper.png" bgcolor="#F3EDDD">
+<?php 
+	@$res_tam = mysql_query($qry_tam, $con);
+    @$row_tam = mysql_fetch_array($res_tam);
+	$lyrics = ($row_tam["flag"] == 1 ) ? "" :"$row_tam[6]";
+	$bg_img = ($row_tam["flag"] == 1 && $row_tam[6] == "" ) ? "raja-images/no_lyrics.png" :"raja-images/rollpaper.png";
+?>
+            <table width="640px" height="634" border="0" cellpadding="0" style="margin-top: 10px;" cellspacing="0" background="<?php echo $bg_img; ?>" bgcolor="#F3EDDD">
                 <tr>
                     <td width="500" height="634">                          
                         <table width="100%" border="0" style="margin-top: -10px;" align="left" cellpadding="0" cellspacing="0">              
@@ -194,9 +205,8 @@ if (@$_SESSION["songs_record_set"] != "") {
                                 <td align="left" valign="top">
 <?php
 if (@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "") {
-    @$res_tam = mysql_query($qry_tam, $con);
-    @$row_tam = mysql_fetch_array($res_tam);
-    //var_dump(@$row_tam);
+    
+   
     $singers = get_singers_details(@$row_tam[3], @$row_tam[4]);
 
     ?>
@@ -230,7 +240,8 @@ if (@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET[
                                                 <td colspan="3">
                                                     <div  style="OVERFLOW: auto;WIDTH: 586px;HEIGHT: 550px; margin-left: 50px; padding:0;" onscroll="OnDivScroll(); "  id="lyrics_content" class="content" >
     <?php
-    $lyrics = "$row_tam[6]";
+
+    
     echo "<p style='margin-top: 10px;'>" . $lyrics . "</p>";
     ?>
                                                     </div>                    
@@ -260,12 +271,14 @@ if (@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET[
 
 <!-- This contains the hidden content for inline calls -->
 <div id="basic" class="well popup_content" style="max-width: 44em; opacity: 0; visibility: hidden; display: inline-block; outline: none; text-align: left; position: relative; vertical-align: middle;" >
-    <h5>More Info about <?php echo "'".first_few_words(@$row_tam[2], 3)."'";?></h5>
-	<table width="100%" cellspacing=2 cellpadding=2 style="padding-bottom: 15px;" border="0">
-		<tr><td class = "side_menu_black">Film Name</td><td class="popup_window"><?php echo @$row_tam[20]?></td></tr>
-		<tr><td class = "side_menu_black">Chorus</td><td class="popup_window"><?php echo @$row_tam[5]?></td></tr>
+    <div class=" basic_close btn-default" style="float: right; margin-top: -17px; margin-right: -13px;"><img src="img/close.png"/></div>
+	<h5 style="margin-top: 0px; ">More Info about <span style="color:green;"><?php echo "'".first_few_words(@$row_tam[2], 3)."'";?></span></h5>
+	<table width="80%" cellspacing=2 cellpadding=2 style="padding-bottom: 5px; margin-top: -10px;" border="0">
+		<tr><td class = "side_menu_black">Film Name</td><td class="popup_window"><?php echo @$row_tam[20]?></td></tr>		
 		<tr><td class = "side_menu_black">Male Singers</td><td class="popup_window"><?php echo $row_tam[3];?></td></tr>
 		<tr><td class = "side_menu_black">Female Singers</td><td class="popup_window"><?php echo @$row_tam[4]?></td></tr>
+		<tr><td class = "side_menu_black">Chorus</td><td class="popup_window"><?php echo @$row_tam[5]?></td></tr>
+		<tr><td class = "side_menu_black">Lyricist</td><td class="popup_window"><?php echo @$row_tam[9]?></td></tr>
 		<tr><td class = "side_menu_black">Playback time</td><td class="popup_window"><?php echo @$row_tam[8]?></td></tr>
 		<tr><td class = "side_menu_black">Production Banner</td><td class="popup_window"><?php echo @$row_tam[25]?></td></tr>
 		<tr><td class = "side_menu_black">Producers</td><td class="popup_window"><?php echo @$row_tam[26]?></td></tr>
@@ -274,8 +287,8 @@ if (@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET[
 		<tr><td class = "side_menu_black">Actress</td><td class="popup_window"><?php echo @$row_tam[29]?></td></tr>
 		<tr><td class = "side_menu_black">Editor</td><td class="popup_window"><?php echo @$row_tam[32]?></td></tr>
 		<tr><td class = "side_menu_black">Release Date</td><td class="popup_window"><?php echo @$row_tam[33]?></td></tr>
-	</table>
-	<button class="mybutton basic_close btn btn-default">Close</button>
+	</table><br />
+	<!--<button class="mybutton basic_close btn btn-default">Close</button>-->
 </div>
 <?php
 

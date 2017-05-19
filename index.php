@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 // session_start();
+$header_title = "Index";
 $_SESSION["BACK_PAGE_PATH"] = get_url_full_path();
 ?>
 <table width="998" border="0" align="left" cellpadding="0" cellspacing="0">
@@ -59,7 +60,7 @@ $_SESSION["BACK_PAGE_PATH"] = get_url_full_path();
                         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td align="center" class="site_caption">
-                                    இளைராஜாவின் இசையில் வெளிவந்த அனைத்து பாடல் வரிகளின் தொகுப்பு
+										இளையராஜாவின் இசையில் வெளிவந்த அனைத்து பாடல் வரிகளின் தொகுப்பு
                                 </td>
                             </tr>
 
@@ -79,7 +80,7 @@ $_SESSION["BACK_PAGE_PATH"] = get_url_full_path();
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td width="2%" height="26">&nbsp;</td>
-                                                        <td width="98%" class="txt-hd-white" align="left" >Latest Ilayaraja Tracks</td>
+                                                        <td width="98%" class="txt-hd-white" align="left" >Latest Tracks</td>
                                                     </tr>
 
                                                 </table>

@@ -56,7 +56,7 @@
                         <table width = "100%" border = "0"  style="margin-left: -5px; margin-top: 2px;" align = "center" cellpadding = "0" cellspacing = "0">
                             <tr>
                                 <td align="center" class="site_caption">
-                                    இளைராஜாவின் இசையில் வெளிவந்த அனைத்து பாடல் வரிகளின் தொகுப்பு
+                                    இளையராஜாவின் இசையில் வெளிவந்த அனைத்து ஆல்பங்களின் தொகுப்பு
                                 </td>
                             </tr>
                             <tr>

@@ -1,0 +1,733 @@
+﻿<?php
+
+include("includes/config.php");
+@$ch=@$_GET["ch"];
+
+@$fid=@$_GET["fid"];
+@$sid=@$_GET["sid"];
+@$n=$_GET['n'];
+$v=mysql_query("select * from flim_english where login=1");
+$c=mysql_num_rows($v);
+if($c>0)
+{
+ if(!isset($_SESSION['uname']) || empty($_SESSION['uname'])) 
+		{
+
+		header("location:login.php?fid=$fid&sid=$sid&ch=$ch&n=$n");
+
+		}
+}
+
+mysql_query("SET NAMES utf8");
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rajapadalgal.com | Ilayaraja Songs | Tamil Songs | Best Ilayaraja Songs | Ilayaraja Movie Songs.</title>
+<link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+<link href="jquery.mCustomScrollbar.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(raja-images/bg-new.jpg);
+	background-attachment:fixed;
+}
+hr{height:0; border:none; border-bottom:1px solid rgba(255,255,255,0.13); border-top:1px solid rgba(0,0,0,1); margin:9px 10px; clear:both;}
+		.links{margin:10px;}
+		.links a{display:inline-block; padding:3px 15px; margin:7px 10px; background:#444; text-decoration:none; -webkit-border-radius:15px; -moz-border-radius:15px; border-radius:15px;}
+		.links a:hover{background:#eb3755; color:#fff;}
+		.content{margin:-6px; width:260px; height:500px; padding:20px; overflow:auto; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;}
+		.content p:nth-child(even){color:#999; font-family:Georgia,serif; font-size:17px; font-style:italic;}
+		.content p:nth-child(3n+0){color:#c96;}
+
+.ltr-bg2 {
+	background-image: url(raja-images/lett-bg2.png);
+}
+.body-bg {
+	background-image: url(raja-images/body-white.png);
+}
+.ltr-bg-hd {
+	background-image: url(raja-images/letters-bg-head.png);
+}
+.txt-hd-white {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+.txt-hd-brown {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #662117;
+	text-decoration: none;
+}
+.txt-hd-color {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	color: #531B14;
+	text-decoration: none;
+}
+.txt-hd-whiteCopy {
+	font-family: 'Pathway Gothic One', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	
+}
+.search-bg {
+	background-image: url(raja-images/search-bg.png);
+}
+.title-bg-hd {
+	background-image: url(raja-images/title-head.png);
+}
+.big-bg {
+	background-image: url(raja-images/latest-head.png);
+}
+.txt-small {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666;
+	text-decoration: none;
+}
+.txt-smallwhite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+}
+.txt-smallCopy {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666;
+	text-decoration: none;
+	text-align: justify;
+	line-height: 17px;
+}
+.side-buton-head {
+	background-image: url(raja-images/side-button-bg.png);
+}
+.side-white {
+	background-image: url(raja-images/side-whit.png);
+}
+.side-bg2 {
+	background-image: url(raja-images/side-bg2.png);
+}
+.footer-bg {
+	background-image: url(raja-images/footer-bg.jpg);
+}
+.text {	font-family: 'Sintony', sans-serif;
+	font-size: 13px;
+	line-height: 24px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+	text-align: justify;
+}
+.textcolor {
+	font-family: 'Sintony', sans-serif;
+	font-size: 13px;
+	line-height: 24px;
+	font-weight: bold;
+	color: #F90;
+	text-decoration: none;
+}
+.foot {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	text-decoration: none;
+}
+.aa-bg {
+	background-image: url(raja-images/aa-bg.jpg);
+}
+.text-white {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+}
+.song-lyrics-bg {
+	background-image: url(raja-images/song-lyrics-bg.png);
+}
+.l2 {
+	background-image: url(raja-images/l2.png);
+}
+.lry-bg1 {
+	background-image: url(raja-images/lyrics-bg1.jpg);
+}
+.form-txt {
+	border-top-color: #B17D19;
+	border-right-color: #B17D19;
+	border-bottom-color: #B17D19;
+	border-left-color: #B17D19;
+	
+	
+}
+.search-bg-big {
+	background-image: url(raja-images/search-bg-big.png);
+}
+.l-big2 {
+	background-image: url(raja-images/lbig3.png);
+}
+.lyrics-big {
+	background-image: url(raja-images/lyrics-big.jpg);
+}
+ul#menu, ul#menu ul.sub-menu {
+    padding:0;
+    margin: 0;
+}
+ul#menu li, ul#menu ul.sub-menu li {
+    list-style-type: none;
+    display: inline-block;
+}
+/*Link Appearance*/
+ul#menu li a, ul#menu li ul.sub-menu li a {
+    text-decoration: none;
+    color: #fff;
+    /*background: #666;*/
+    padding: 5px;
+    display:inline-block;
+	margin-left: 68px;
+    margin-right: 8px;
+	margin-top: 9px;
+}
+/*Make the parent of sub-menu relative*/
+ul#menu li {
+    position: relative;
+}
+/*sub menu*/
+ul#menu li ul.sub-menu {
+    display:none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100px;
+}
+ul#menu li:hover ul.sub-menu {
+    display:block;
+}
+.menu1
+{
+	background:url(raja-images/menu.png) no-repeat;
+	width:990px;
+	height:39px;
+}
+#floatDiv {
+    background: url("images/social-media/bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 13px;
+    height: 400px;
+    left: 89%;
+    margin-left: 0;
+    margin-top: 150px;
+    padding: 10px;
+    position: absolute;
+    width: 50px;
+    z-index: 99;
+}
+.lyric_{ margin:22px 0 0;}
+</style>
+
+<link rel="stylesheet" type="text/css" href="ddsmoothmenu.css" />
+<link rel="stylesheet" type="text/css" href="ddsmoothmenu-v.css" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="ddsmoothmenu.js">
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/minified/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script>
+	<!-- custom scrollbars plugin -->
+	<script src="jquery.mCustomScrollbar.concat.min.js"></script>
+	<script>
+		(function($){
+			$(window).load(function(){
+				$("#content_1").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+			});
+		})(jQuery);
+	</script>
+    <script>
+		(function($){
+			$(window).load(function(){
+				$("#content_2").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+			});
+		})(jQuery);
+	</script>
+     <script>
+		(function($){
+			$(window).load(function(){
+				$("#content_3").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+			});
+		})(jQuery);
+	</script>
+     <script>
+		(function($){
+			$(window).load(function(){
+				$("#content_4").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+			});
+		})(jQuery);
+	</script>
+     <script>
+		(function($){
+			$(window).load(function(){
+				$("#content_5").mCustomScrollbar({
+					autoHideScrollbar:true,
+					theme:"light-thin"
+				});
+			});
+		})(jQuery);
+	</script>
+    
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "smoothmenu1", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+ddsmoothmenu.init({
+	mainmenuid: "smoothmenu2", //Menu DIV id
+	orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+	method: 'hover', // set to 'hover' (default) or 'toggle'
+	arrowswap: true, // enable rollover effect on menu arrow images?
+	//customtheme: ["#804000", "#482400"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+</head>
+
+<body>
+<script language="javascript">
+$(document).ready(function(){
+	//on window scroll fire it will call a function.
+    $(window).scroll(function () {
+    //after window scroll fire it will add define pixel added to that element.
+    set = $(document).scrollTop()+"px";
+    //this is the jQuery animate function to fixed the div position after scrolling.
+	$('#floatDiv').animate({top:set},{duration:300,queue:false});
+	});
+});
+</script>
+<div id="floatDiv" style="top: 0px;">
+<a target="_blank" href="#">
+<img border="0" alt="Facebook" src="photos/facebook.png">
+</a>
+<a target="_blank" href="#">
+<img border="0" alt="Twitter" style=" margin-top:10px;" src="photos/twitter_new.png">
+</a>
+<a target="_blank" href="#">
+<img border="0" alt="You Tube" style=" margin-top:10px;" src="photos/youtube.png">
+</a>
+</div>
+<?php
+
+
+@$qry_tam="select * from songs_tamil inner join flim_tamil on songs_tamil.fid=flim_tamil.id where songs_tamil.fid='$fid' and songs_tamil.sid='$sid'";
+
+@$res_tam = mysql_query($qry_tam, $con); 
+
+@$row_tam=mysql_fetch_array($res_tam);
+@$count=mysql_num_rows($res_tam);
+@$qry_tam1="select * from songs_english inner join flim_english on songs_english.fid=flim_english.id where songs_english.fid='$fid' and songs_english.sid='$sid'";
+
+@$res_tam1 = mysql_query($qry_tam1, $con); 
+@$count1=mysql_num_rows($res_tam1);
+@$row_tam1=mysql_fetch_array($res_tam1);
+
+if($count>0)
+{
+if($row_tam1[17]==1)
+{
+?>
+<div style="position:absolute; top:183px; left:519px;">
+<!--<object type="application/x-shockwave-flash" data="player.swf" width="200" height="20">
+     <param name="movie" value="player.swf" />
+     <param name="FlashVars" value="mp3=songs/<?php echo $row_tam[16]; ?>" />
+</object>-->
+<audio autoplay="autoplay" controls="controls" loop="loop">
+   <source src="http://360degreeinfo.co.in/rajapadalnew/rajaadmin/Songs/<?php echo $fid; ?>/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3.mp3" type="audio/mpeg">
+   <embed height="50" width="100" src="http://360degreeinfo.co.in/rajapadalnew/rajaadmin/Songs/<?php echo $fid; ?>/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3.mp3">
+</audio> 
+</div>
+<?php
+}
+}else if($count1>0)
+{
+	if($row_tam[17]==1)
+	{
+	
+	?>
+   
+    <div style="position:absolute;margin-top:167px; margin-left:482px">
+<!--<object type="application/x-shockwave-flash" data="player.swf" width="200" height="20">
+     <param name="movie" value="player.swf" />
+     <param name="FlashVars" value="mp3=songs/<?php echo $row_tam[16]; ?>" />
+</object>-->
+<audio autoplay="autoplay" controls="controls" loop="loop">
+  <source src="http://360degreeinfo.co.in/rajapadalnew/rajaadmin/Songs/<?php echo $fid; ?>/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3.mp3" type="audio/mpeg">
+   <embed height="50" width="100" src="http://360degreeinfo.co.in/rajapadalnew/rajaadmin/Songs/<?php echo $fid; ?>_<?php echo $sid; ?>.mp3.mp3">
+</audio> 
+</div>
+	<?php
+}
+}
+
+?>
+<!--<div style="position:absolute;margin-top:196px; margin-left:714px"">
+<audio controls>
+  <source src="songs/Party With Bhootnath-DJ Shadow Mix- [WapClubs.iN].mp3" type="audio/mpeg">
+   <embed height="50" width="100" src="songs/Party With Bhootnath-DJ Shadow Mix- [WapClubs.iN].mp3">
+</audio> 
+</div>-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="936" valign="top"><table width="990" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="861" valign="top" bgcolor="#F3EDDD"><table width="990" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td bgcolor="#FFFFFF"><table width="998" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="391" height="128" valign="top" bgcolor="#F3EDDD"><img src="raja-images/raja-paadalgal-logo.png" width="380" height="126" /></td>
+                <td width="599" colspan="-1" valign="top" bgcolor="#F3EDDD"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="77%" height="50">&nbsp;</td>
+                    
+                  </tr>
+                  <tr>
+                    <td height="78" colspan="2"><!--<li><iframe src="test/index-key.php" width="387" height="167" scrolling="yes" style="left: 524px;
+    overflow: hidden;
+    position: absolute;
+    top: -13px; border:none;"></iframe></li>--></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="50" colspan="2" align="center" valign="top" bgcolor="#F3EDDD"><ul id="menu">
+   <a href="index.php"  style="background:none !important; "> <li style="background:url(raja-images/home.png) no-repeat; list-style:none; margin-right:7px !important; height:39px; width:167px;">
+        
+    </li></a>
+    <a href="about.php"  style="background:none !important;"><li style="background:url(raja-images/abt.png) no-repeat; list-style:none;  height:39px; width:140px; margin: 0 8px  0 -46px;">  
+    </li></a> 
+    <li style="background:url(raja-images/advanced.png) no-repeat; margin-left: -10px;  height:39px; width:231px;">
+ <ul class="sub-menu">
+            <a href="advanced_tamil.php"  style="background:none !important;"><li style="background:url(raja-images/tamil.png) no-repeat; list-style:none;    margin-left: -73px; margin-top: -5px; height: 39px; width: 188px; ">
+                
+            </li></a>
+           <a href="advanced_english.php"  style="background:none !important;"> <li style="background:url(raja-images/english.png) no-repeat; list-style:none; margin-left: -74px; margin-top: -21px; height: 39px; width: 188px; ">
+                
+            </li></a>
+           
+        </ul>
+    </li>
+   <a href="feedback.php"  style="background:none !important;"> <li style="background:url(raja-images/demo.png) no-repeat; list-style:none;  height:39px; width:140px;margin: 0 -7px 0 -53px;">
+        </li></a>
+   <a href="contact.php"  style="background:none !important;"> <li style="background:url(raja-images/about.png) no-repeat; list-style:none;  height:39px; width:140px; margin-left: -3px;
+    margin-right: -7px;">
+        
+    </li></a>
+    <a href="news.php"  style="background:none !important;"> <li style="background:url(raja-images/site.png) no-repeat ; list-style:none;  height:39px; width:139px;margin: 0 -12px  0 -5px;">
+       </li> </a>
+    
+     <a href="blog.php"  style="background:none !important;"><li style="background:url(raja-images/contact.png) no-repeat; list-style:none;  height:39px; width:140px;">
+        </li></a>
+    
+</ul></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+        <div class="lyric_">
+          <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0" id="smoothmenu2">
+            <tr>
+              <td width="33%" height="311" valign="top"><table width="326" border="0" align="left" cellpadding="0" cellspacing="0">
+             
+                <tr>
+                  <td width="315" height="300" align="center" valign="top"><div style="border:solid 2px #F4B332; margin-left: -25px; width: 305px; border-radius:5px; height:270px; margin-top: 20px;"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><?php 
+					  @$n=$_GET['n'];
+					  if($n==1){
+                 
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$qry_tam="select * from songs_tamil inner join flim_tamil on songs_tamil.fid=flim_tamil.id where songs_tamil.fid='$fid' and songs_tamil.sid='$sid'";
+
+@$res_tam = mysql_query($qry_tam, $con); 
+
+@$row_tam=mysql_fetch_array($res_tam);
+
+@$qry = "select * from songs_tamil where songs_tamil.fid='$fid' order by sname asc";
+
+@$res = mysql_query($qry, $con); 
+
+echo "<div style='text-align:left;'><font size='4px' style='font-weight:bold;line-height:35px; font-size:14px;'>&nbsp;&nbsp;<img src='photos/flim.png' width='40' height='40' style='vertical-align:middle;'/>&nbsp;&nbsp;".$row_tam[19]." (".$row_tam[20].") "."<hr color='black' style=' margin-left: 4px;
+    width: 298px;'></font>";
+echo "</div><br>"; ?>
+<div style="text-align:left; height:183px; padding:0; width:294px; overflow:auto; margin-top:-20px !important;" id="content_3" class="content">
+<?php
+
+$i=1;
+while(@$row = mysql_fetch_array($res))
+{
+$charset = 'UTF-8';
+$f = "$row[2]";
+$f = mb_substr($f, 0, 1, $charset);
+echo "<a href='lyricstamil.php?fid=$row[0]&sid=$row[1]&ch=$f&n=1' style='text-decoration:none;font-weight:bold;font-size:12px;color:black;'>&nbsp;&nbsp;&nbsp;<img src='photos/song-no.png' width='15' height='10' />".$i.". ".$row[2]."</a>";
+echo "<hr style='height:0px;border:none;display:block;' color='white' ></hr>"; 
+$i=$i+1;
+}
+?>
+</div>
+<?php
+}
+
+?></td>
+                    </tr>
+                  </table></div></td>
+                </tr>
+                
+              </table></td>
+              <td width="39%" rowspan="2"><table style="margin-left:-85px;" width="116%;" height="634" border="0" cellpadding="0" cellspacing="0" background="raja-images/rollpaper.png ">
+              <div style="position: absolute; top:188px; right:190px;"><a style="background:#B57F00; font-family:Georgia, 'Times New Roman', Times, serif; border-radius: 5px; color: #fff; padding: 5px; text-decoration: none; font-size:13px;
+}" href="?fid=<?php echo $fid; ?>&sid=<?php echo $sid; ?>&n=2">View in English</a></div>
+<?php if($_SESSION['m']!=''){ ?>
+ <div style="position: absolute; top:189px; right:300px;"><a style="background:#B57F00; font-family:Georgia, 'Times New Roman', Times, serif; border-radius: 5px; color: #fff; padding: 5px; text-decoration: none; font-size:13px;}" href="songtabletamil.php?char=<?php echo $_SESSION['char']; ?>&m=<?php echo $_SESSION['m']; ?>">Back</a></div>
+ <?php }else if($_SESSION['n']!=''){?>
+ <div style="position: absolute; top:180px; right:448px;"><a style="background:#B57F00; font-family:Georgia, 'Times New Roman', Times, serif; border-radius: 5px; color: #fff; padding: 5px; text-decoration: none; font-size:13px;}" href="songtabletamil.php?char=<?php echo $_SESSION['char']; ?>&n=<?php echo $_SESSION['n']; ?>&id=<?php echo $_SESSION['id']; ?>">Back</a></div><?php }?>
+                <tr>
+                  <td width="500" height="634">
+                  
+                 
+                  <table width="478" height="469" border="0" align="left" cellpadding="0" cellspacing="0">
+                  
+                      <tr>
+                        <td width="4" height="117" align="center" valign="middle">&nbsp;</td>
+                        <td width="441" align="left" valign="middle"><div style="OVERFLOW: auto; margin-top:-75px; margin-left: 6px; margin-right: -116px; WIDTH: 586px;HEIGHT: 500px" onscroll="OnDivScroll();" id="content_1" class="content" ><?php
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$qry_tam="select * from songs_tamil inner join flim_tamil on songs_tamil.fid=flim_tamil.id where songs_tamil.fid='$fid' and songs_tamil.sid='$sid'";
+?>
+
+<?php
+
+@$res_tam = mysql_query($qry_tam, $con); 
+
+@$row_tam=mysql_fetch_array($res_tam);
+
+echo "<font style='line-height:35px;font-weight:bold;font-size:25px;color:black; margin-left: 257px;'>பாடல் : </font><p>";
+
+echo "<p style='line-height:35px;font-weight:bold;font-size:12px;text-align:left; color:#FFF !important;'>".preg_replace('/_x000D_/i', '<br>', $row_tam[6])."</p>";
+
+}
+                  
+?></div></td>
+                        <td width="33" align="center" valign="middle">&nbsp;</td>
+                      </tr>
+                    </table></td>
+</tr>
+              </table></td>
+              </tr>
+            <tr>
+              <td height="218"><div style="border:solid 2px #F4B332; border-radius:5px;  margin-left: -4px;
+    width: 305px; height:341px;"><table width="331" border="0" align="left" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="310" height="300" valign="top"><table width="95%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="18"><?php
+
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$sql="select * from songs_tamil inner join flim_tamil on songs_tamil.fid=flim_tamil.id where sname LIKE '$ch%' order by sname asc limit 10";
+
+@$result = mysql_query($sql, $con); 
+
+echo "&nbsp;&nbsp;<img src='photos/flim.png' width='40' height='40' style='vertical-align:middle;'/>&nbsp;&nbsp<font size='4px' style='font-weight:bold;line-height:35px;'>&nbsp;&nbsp;Song Titles :  </font><p>";
+echo "<hr color='black' style=' margin-left: 4px;
+    width: 298px;'></hr>";
+?>
+<div style="text-align:left; padding:5px 0 0; height: 278px; width:293px; overflow:auto;" id="content_4" class="content">
+<?php
+
+$i=1;
+while(@$row=mysql_fetch_array($result))
+{
+$charset = 'UTF-8';
+$ch = "$row[2]";
+$ch = mb_substr($ch, 0, 1, $charset);
+echo "<a href='lyricstamil.php?fid=$row[0]&sid=$row[1]&ch=$ch&n=1' style='text-decoration:none;font-weight:bold;font-size:12px;color:black;'>&nbsp;&nbsp;&nbsp;<img src='photos/song-no.png' width='15' height='10' />".$i.". ".$row[2]."</a>";
+echo "<hr style='height:0px;border:none;display:block;' color='white' ></hr>"; 
+$i=$i+1;
+}?>
+</div><br>
+<?php
+}
+}else if($n==2)
+{
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$qry_tam="select * from songs_english inner join flim_english on songs_english.fid=flim_english.id where songs_english.fid='$fid' and songs_english.sid='$sid'";
+
+@$res_tam = mysql_query($qry_tam, $con); 
+
+@$row_tam=mysql_fetch_array($res_tam);
+
+@$qry = "select * from songs_english where songs_english.fid='$fid' order by sname asc";
+
+@$res = mysql_query($qry, $con); 
+
+echo "<div style='text-align:left;'><font size='4px' style='font-weight:bold;line-height:35px; font-size:14px;'>&nbsp;&nbsp;<img src='photos/flim.png' width='40' height='40' style='vertical-align:middle;'/>&nbsp;&nbsp;".$row_tam[19]." (".$row_tam[20].") "."<hr color='black' style=' margin-left: 4px;
+    width: 298px;'></font>";
+echo "</div><br>";
+?>
+<div style="text-align:left; height:200px; width:294px; padding:0; margin-top: -24px; overflow:auto;" id="content_5" class="content" >
+<?php
+
+
+$i=1;
+while(@$row = mysql_fetch_array($res))
+{
+$charset = 'UTF-8';
+$f = "$row[2]";
+$f = mb_substr($f, 0, 1, $charset);
+echo "<a href='lyricstamil.php?fid=$row[0]&sid=$row[1]&ch=$f&n=2' style='text-decoration:none;font-weight:bold;font-size:12px;color:black;'>&nbsp;&nbsp;&nbsp;<img src='photos/song-no.png' width='15' height='10' />".$i.". ".$row[2]."</a>";
+echo "<hr style='height:0px;border:none;display:block;' color='white' ></hr>"; 
+$i=$i+1;
+}
+?>
+</div>
+<?php
+}
+
+?></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table></div></td>
+              <td width="28%" rowspan="2">
+              <table width="640px" height="634" border="0" cellpadding="0" cellspacing="0" background="raja-images/rollpaper.png">
+               <div style="position: absolute; top:180px; right:190px;"><a style="background:#B57F00; font-family:Georgia, 'Times New Roman', Times, serif; border-radius: 5px; color: #fff; padding: 5px; text-decoration: none; font-size:13px;}" href="?fid=<?php echo $fid; ?>&sid=<?php echo $sid; ?>&n=1">தமிழ் பார்வையிட</a></div>
+               <div style="position: absolute; top:180px; right:350px;"><a style="background:#B57F00; font-family:Georgia, 'Times New Roman', Times, serif; border-radius: 5px; color: #fff; padding: 5px; text-decoration: none; font-size:13px;}" href="songtabletamil.php?char=<?php echo $_SESSION['char']; ?>&m=<?php echo $_SESSION['m']; ?>">Back</a></div>
+                <tr>
+                  <td width="500" height="634">
+                  
+                 
+                  <table width="100%" height="469" border="0" align="left" cellpadding="0" cellspacing="0">
+                  
+                      <tr>
+                        <td width="104" height="117" align="center" valign="middle">&nbsp;</td>
+                        <td width="309" align="left" valign="middle"><div  style="OVERFLOW: auto;WIDTH: 586px;HEIGHT: 500px; padding:0; margin-top:-75px;  margin-left:3;" onscroll="OnDivScroll(); "  id="content_1" class="content" ><?php
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$qry_tam="select * from songs_english inner join flim_english on songs_english.fid=flim_english.id where songs_english.fid='$fid' and songs_english.sid='$sid'";
+
+@$res_tam = mysql_query($qry_tam, $con); 
+
+@$row_tam=mysql_fetch_array($res_tam);
+
+echo "<font style='line-height:35px;font-weight:bold;font-size:25px;color:black; margin-left: 257px;'>Lyrics : </font><p>";
+
+echo "<p style='line-height:25px;font-weight:bold;font-size:12px;text-align:left; color:#FFF !important;'>".$row_tam[6]."</p>";
+
+}
+                  
+?></div></td>
+                        <td width="96" align="center" valign="middle">&nbsp;</td>
+                      </tr>
+                    </table></td>
+</tr>
+              </table></td>
+              </tr>
+            <tr>
+              <td height="218"><table width="324" border="0" align="left" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="400" height="300" valign="top" background=""><div style="border:solid 2px #F4B332; border-radius:5px; height:340px;  margin-left: -4px;
+    width: 305px;"><table width="95%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="18"><?php
+
+if(@isset($_GET["fid"]) && $_GET["fid"] != "" && @isset($_GET["sid"]) && $_GET["sid"] != "" )
+{
+
+@$sql="select * from songs_english inner join flim_english on songs_english.fid=flim_english.id where sname LIKE '$ch%' order by sname asc limit 10";
+
+@$result = mysql_query($sql, $con); 
+
+echo "&nbsp;&nbsp;<img src='photos/flim.png' width='40' height='40' style='vertical-align:middle;'/>&nbsp;&nbsp<font size='4px' style='font-weight:bold;line-height:35px; margin-left: 0;
+    width: 304px;'>&nbsp;&nbsp;Song Titles :  </font><p>";
+echo "<hr color='#000000' style=' margin-left: 4px;
+    width: 298px;'>";
+?>
+<div style="text-align:left; height: 268px; padding:15px 0 0; width:293px; overflow:auto;" id="content_2" class="content">
+<?php
+
+$i=1;
+while(@$row=mysql_fetch_array($result))
+{
+$charset = 'UTF-8';
+$ch = "$row[2]";
+$ch = mb_substr($ch, 0, 1, $charset);
+echo "<a href='lyricstamil.php?fid=$row[0]&sid=$row[1]&ch=$ch&n=2' style='text-decoration:none;font-weight:bold;font-size:12px;color:black;'>&nbsp;&nbsp;&nbsp;<img src='photos/song-no.png' width='15' height='10' />".$i.". ".$row[2]."</a>";
+echo "<hr style='height:0px;border:none;display:block;' color='white' ></hr>"; 
+$i=$i+1;
+}
+?>
+</div><br>
+<?php
+}
+}
+?></td>
+                    </tr>
+                  </table></div></td>
+                </tr>
+          </table></td>
+      </tr>
+  </table>
+  		</div>
+      <table width="990" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+           <td height="75" style="background:url(raja-images/footer.png) !important; padding-left: 7px;" class="footer-bg"><table width="990" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="28" align="center" class="foot">Copyrights © Rajapadalgal.com .Website Designed by <a href="http://www.360degreeinfo.com/" target="_blank" class="text">360degreeinfo</a></td>
+            </tr>
+          </table></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -46,7 +46,11 @@ $producer = ($lang == SONG_ENGLISH) ? "Producer" : "தயாரிப்பா�
             onLoadSuccess: function(data) {
                 if (data.total == 0) {
                     showNoRecordsMessage($('#moviesTable'));
-                } 
+                } else {
+					var vc = $('#moviesTable').datagrid('getPanel').children('div.datagrid-view');
+					vc.children('div.datagrid-empty').remove();
+				}
+				
             }
         })
     });

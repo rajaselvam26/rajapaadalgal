@@ -351,7 +351,16 @@
           <li><a href="songtabletamil.php?char=னௌ&m=2">னௌ</a></li>
         </ul>
       </li>   
-    
+    <li><a href="#">ஜ</a>
+                <ul>
+					<li><a href="songtabletamil.php?char=ஜ&m=2">ஜ</a></li>
+                    <li><a href="songtabletamil.php?char=ஜா&m=2">ஜா</a></li> 
+					<li><a href="songtabletamil.php?char=ஸ்ரீ&m=2">ஸ்ரீ</a></li>
+                    <li><a href="songtabletamil.php?char=ஹ&m=2">ஹ</a></li>
+                    <li><a href="songtabletamil.php?char=ஷ&m=2">ஷ</a></li>
+                    <li><a href="songtabletamil.php?char=ஸ&m=2">ஸ</a></li>                    
+                </ul>
+            </li>
     <br style="clear: left;" />
 </ul></div>
 </td>

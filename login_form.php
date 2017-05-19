@@ -7,7 +7,7 @@ date_default_timezone_set('America/Los_Angeles');
 
 	<?php 
       if($msg == 2) {
-		echo "<span height='40'><font style='font-size: 12px; margin-left: 1px; color='#FF0000; margin-bottom: 15px;'>Username Or Password Is Invalid</font> </span>";
+		echo "<span height='40'><font style='font-size: 12px; margin-left: 1px; color='#FF0000; margin-bottom: 15px;'>Invalid User ID or Password. Click <a href='contact.php'>here</a> to contact administrator.</font> </span>";
       } else if($msg == 3) {
         echo "<span height='40'><font style='font-size: 12px; margin-left: 1px; color='#FF0000; margin-bottom: 15px;'>Login to view lyrics</font> </span>";
       } else {

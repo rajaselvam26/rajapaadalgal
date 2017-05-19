@@ -29,7 +29,7 @@
         <li style="background:url(raja-images/film_search.png) no-repeat ; list-style:none;  height:39px; width:142px; margin: 0 -10px  0 -4px;">
         </li>
     </a>
-    <a href="#" style="background:none !important;" class="menu_cls">
+    <a href="contact.php" style="background:none !important;" class="menu_cls">
         <li style="background:url(raja-images/contact.png) no-repeat; list-style:none;  height:39px; width:140px; margin: 0 0px  0 -4px;">
         </li>
     </a>

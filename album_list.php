@@ -112,7 +112,7 @@ include_once("includes/config.php");
 <ul id="itemContainer" class="rajaBorder borderShadow" >
   <?php
     mysql_query("set character_set_results='utf8'");
-    $vtb = mysql_query("select * from flim_english where flag='1'");	
+    $vtb = mysql_query("select * from flim_english where flag='1' and flim_english.lang='Tamil'");	
     $count = 0;
     while ($r = mysql_fetch_object($vtb)) {
         $count++;        
@@ -134,10 +134,10 @@ include_once("includes/config.php");
                     </td>
                     <td valign="middle" style="">
                         <div class="txt-small" align="left">
-                            <a class="txt-small" style="margin-left: 15px;color:#EC8C10;" href="songtabletamil.php?album_search=true&search=film_search&m=2&id= <?php echo $r->id; ?>"> <?php echo $r->flimname; ?></a>
+                            <a class="txt-small" style="margin-left: 15px;color:#EC8C10;" href="songtabletamil.php?album_search=true&search=film_search&m=1&id= <?php echo $r->id; ?>"> <?php echo $r->flimname; ?></a>
                         </div>
                         <div  class="txt-small" align="left" >
-                            <a class="txt-small"  style="margin-left: 15px;color:#EC8C10;" href="songtabletamil.php?album_search=true&search=film_search&m=1&id= <?php echo $r->id; ?>"><?php echo $r2->flimname; ?></a>
+                            <a class="txt-small"  style="margin-left: 15px;color:#EC8C10;" href="songtabletamil.php?album_search=true&search=film_search&m=2&id= <?php echo $r->id; ?>"><?php echo $r2->flimname; ?></a>
                         </div>
                     </td>              
                 </tr>

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include_once("includes/config.php");
+require_once 'includes/class_password.php';  
 require 'fb/fb_config.php';
 require 'fb/facebook.php';
 
@@ -13,13 +14,15 @@ $access_token = $facebook->getAccessToken();
 if($facebook->getUser() != 0) {
 	$api = $facebook->api('me');	
 }
-$msg = 0;
-$count = -1;
+$cPwd = new Password(); 
+
+$msg 	= 0;
+$count 	= -1;
 extract($_REQUEST);
-$fid = @$_GET['fid'];
-$sid = @$_GET['sid'];
-$ch = @$_GET['ch'];
-$m = @$_GET['m'];
+$fid 	= @$_GET['fid'];
+$sid 	= @$_GET['sid'];
+$ch 	= @$_GET['ch'];
+$m 		= @$_GET['m'];
 
 if (@$_REQUEST['redirect_reason'] == "session_not_present") {
     $msg = 3;
@@ -30,11 +33,19 @@ $vReDirectURI = ($fid != "" ) ? "lyricstamil.php?fid=$fid&sid=$sid&ch=$ch&m=$m&c
 if(@$create_account_val != 1 || (isset($api))) {
 	
 	if (isset($uname) && ($uname != "")) {
-		$vQuery = "select * from users where email='$uname' and password='$pwd' and flag=1";
-		$record_set = mysql_query($vQuery, $con);
-		$count = mysql_num_rows($record_set);
-		
+		$vQuery = "select * from users where email='$uname' and flag=1";
+		$record_set = 	mysql_query($vQuery, $con);
+		while($row	=	mysql_fetch_array($record_set)){
+			$db_password  	= $row['password'];
+			$hash = $cPwd->re_hash($db_password, $pwd ); 
+			if( $hash === $db_password ) {
+				$count = 1;
+			} else {
+				$count = 0;
+			}
+		}
 	}
+	
 	if ($count > 0 || (isset($api))) {
 		session_start();
 		$_SESSION['uname'] = (isset($api[name])) ? $api[name] : $uname;
@@ -54,7 +65,10 @@ if(@$create_account_val != 1 || (isset($api))) {
 	$email_record_set = mysql_query($emailQuery, $con);
 	$count = mysql_num_rows($email_record_set);
 	if ($count == 0) {
-		mysql_query("insert into users(name,uname,email,phno,password,dat,flag) values('".$firstname."','".$lastname."','".$email."','".$phno."','".$password."',now(),1)");
+		$user_password = $password; //password provided by user 
+		$hash_password = $cPwd->hash($user_password); //hash the password
+		
+		mysql_query("insert into users(name,uname,email,phno,password,dat,flag) values('".$firstname."','".$lastname."','".$email."','".$phno."','".$hash_password."',now(),1)");
 		$msg = 5;
 	} else {
 		$msg = 4;
